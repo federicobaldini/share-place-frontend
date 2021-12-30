@@ -8,7 +8,7 @@ const Users = () => {
       id: "u00001",
       name: "Federico Baldini",
       image:
-        "https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg",
+        "https://images.pexels.com/photos/10430890/pexels-photo-10430890.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       places: 7,
     },
   ];
