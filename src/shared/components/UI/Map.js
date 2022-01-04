@@ -23,6 +23,14 @@ const Map = (props) => {
           width: 5,
         }),
       }),
+      /*
+      image: new window.ol.style.Icon({
+        anchor: [0.5, 46],
+        anchorXUnits: "fraction",
+        anchorYUnits: "pixels",
+        src: "https://openlayers.org/en/latest/examples/data/icon.png",
+      }),
+      */
     });
 
     marker.setStyle(markerStyle);
