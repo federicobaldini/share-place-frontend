@@ -62,7 +62,7 @@ const NewPlace = () => {
   };
 
   return (
-    <form className="place-form">
+    <form className="place-form" onSubmit={placeSubmitHandler}>
       <Input
         id="title"
         element="input"
