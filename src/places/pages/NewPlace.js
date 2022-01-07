@@ -6,7 +6,7 @@ import {
   VALIDATOR_MINLENGTH,
   VALIDATOR_REQUIRE,
 } from "../../shared/utils/validators";
-import "./NewPlace.css";
+import "./PlaceForm.css";
 
 const formReducer = (state, action) => {
   switch (action.type) {
@@ -43,6 +43,10 @@ const NewPlace = () => {
         value: "",
         isValid: false,
       },
+      address: {
+        value: "",
+        isValid: false,
+      },
     },
     isValid: false,
   });
@@ -58,7 +62,7 @@ const NewPlace = () => {
 
   const placeSubmitHandler = (event) => {
     event.preventDefault();
-    console.log(formState.inputs) // send this to the backend!
+    console.log(formState.inputs); // send this to the backend!
   };
 
   return (
