@@ -32,6 +32,7 @@ const App = () => {
         <Route path="/:userId/places" element={<UserPlaces />} />
         <Route path="/places/new" element={<NewPlace />} />
         <Route path="/places/:placeId" element={<UpdatePlace />} />
+        <Route path="*" element={<Users />} />
       </Routes>
     );
   } else {
@@ -40,6 +41,7 @@ const App = () => {
         <Route path="/" element={<Users />} />
         <Route path="/:userId/places" element={<UserPlaces />} />
         <Route path="/auth" element={<Auth />} />
+        <Route path="*" element={<Users />} />
       </Routes>
     );
   }
