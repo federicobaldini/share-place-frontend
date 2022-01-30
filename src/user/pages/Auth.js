@@ -60,9 +60,10 @@ const Auth = () => {
 
   const authSubmitHandler = async (event) => {
     event.preventDefault();
+
     if (isLoginMode) {
       try {
-        await sendRequest(
+        const data = await sendRequest(
           "http://localhost:5000/api/users/login",
           "POST",
           JSON.stringify({
@@ -71,11 +72,11 @@ const Auth = () => {
           }),
           { "Content-Type": "application/json" }
         );
-        auth.login();
+        auth.login(data.user.id);
       } catch (err) {}
     } else {
       try {
-        await sendRequest(
+        const data = await sendRequest(
           "http://localhost:5000/api/users/signup",
           "POST",
           JSON.stringify({
@@ -87,7 +88,7 @@ const Auth = () => {
             "Content-Type": "application/json",
           }
         );
-        auth.login();
+        auth.login(data.user.id);
       } catch (err) {}
     }
   };
