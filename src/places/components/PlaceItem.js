@@ -4,13 +4,17 @@ import Card from "../../shared/components/UI/Card";
 import Button from "../../shared/components/Form/Button";
 import Modal from "../../shared/components/UI/Modal";
 import Map from "../../shared/components/UI/Map";
+import ErrorModal from "../../shared/components/UI/ErrorModal";
+import LoadingSpinner from "../../shared/components/UI/LoadingSpinner";
 import { AuthContext } from "../../shared/context/auth-context";
+import { useHttpClient } from "../../shared/hooks/http-hook";
 import "./PlaceItem.css";
 
 const PlaceItem = (props) => {
   const auth = useContext(AuthContext);
   const [showMap, setShowMap] = useState(false);
   const [showConfimModal, setShowConfirmModal] = useState(false);
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const openMapHandler = () => {
     setShowMap(true);
@@ -28,13 +32,21 @@ const PlaceItem = (props) => {
     setShowConfirmModal(false);
   };
 
-  const confirmDeleteHandler = () => {
+  const confirmDeleteHandler = async () => {
     setShowConfirmModal(false);
-    console.log("DELETING...");
+
+    try {
+      await sendRequest(
+        "http://localhost:5000/api/places/" + props.id,
+        "DELETE"
+      );
+      props.onDelete(props.id);
+    } catch (err) {}
   };
 
   return (
     <React.Fragment>
+      <ErrorModal error={error} onClear={clearError} />
       <Modal
         show={showMap}
         onCancel={closeMapHandler}
@@ -54,10 +66,10 @@ const PlaceItem = (props) => {
         footerClass="place-item__modal-actions"
         footer={
           <React.Fragment>
-            <Button inverse onClick={cancelDeleteHandler}>
+            <Button className="place-item__modal-actions__button" inverse onClick={cancelDeleteHandler}>
               CANCEL
             </Button>
-            <Button danger onClick={confirmDeleteHandler}>
+            <Button className="place-item__modal-actions__button" danger onClick={confirmDeleteHandler}>
               DELETE
             </Button>
           </React.Fragment>
@@ -70,6 +82,7 @@ const PlaceItem = (props) => {
       </Modal>
       <li className="place-item">
         <Card className="place-item__content">
+          {isLoading && <LoadingSpinner asOverlay />}
           <div className="place-item__image">
             <img src={props.image} alt={props.title} />
           </div>

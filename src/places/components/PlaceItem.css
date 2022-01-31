@@ -53,6 +53,10 @@
   width: 100%;
 }
 
+.place-item__modal-actions__button {
+  margin: 0.5rem;
+}
+
 @media (min-width: 768px) {
   .place-item__image {
     height: 20rem;
