@@ -33,7 +33,6 @@ const NewPlace = () => {
     false
   );
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
-
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
 
