@@ -38,7 +38,11 @@ const PlaceItem = (props) => {
     try {
       await sendRequest(
         "http://localhost:5000/api/places/" + props.id,
-        "DELETE"
+        "DELETE",
+        null,
+        {
+          Authorization: "Bearer " + auth.token,
+        }
       );
       props.onDelete(props.id);
     } catch (err) {}
@@ -66,10 +70,18 @@ const PlaceItem = (props) => {
         footerClass="place-item__modal-actions"
         footer={
           <React.Fragment>
-            <Button className="place-item__modal-actions__button" inverse onClick={cancelDeleteHandler}>
+            <Button
+              className="place-item__modal-actions__button"
+              inverse
+              onClick={cancelDeleteHandler}
+            >
               CANCEL
             </Button>
-            <Button className="place-item__modal-actions__button" danger onClick={confirmDeleteHandler}>
+            <Button
+              className="place-item__modal-actions__button"
+              danger
+              onClick={confirmDeleteHandler}
+            >
               DELETE
             </Button>
           </React.Fragment>
@@ -84,7 +96,10 @@ const PlaceItem = (props) => {
         <Card className="place-item__content">
           {isLoading && <LoadingSpinner asOverlay />}
           <div className="place-item__image">
-            <img src={"http://localhost:5000/" + props.image} alt={props.title} />
+            <img
+              src={"http://localhost:5000/" + props.image}
+              alt={props.title}
+            />
           </div>
           <div className="place-item__info">
             <h2>{props.title}</h2>
