@@ -7,6 +7,7 @@ import UserPlaces from "./places/pages/UserPlaces";
 import UpdatePlace from "./places/pages/UpdatePlace";
 import Auth from "./user/pages/Auth";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
+import Places from "./places/pages/Places";
 import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook";
 
@@ -18,20 +19,22 @@ const App = () => {
   if (token) {
     routes = (
       <Routes>
-        <Route path="/" element={<Users />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/places" element={<Places />} />
         <Route path="/:userId/places" element={<UserPlaces />} />
         <Route path="/places/new" element={<NewPlace />} />
         <Route path="/places/:placeId" element={<UpdatePlace />} />
-        <Route path="*" element={<Users />} />
+        <Route path="*" element={<Places />} />
       </Routes>
     );
   } else {
     routes = (
       <Routes>
-        <Route path="/" element={<Users />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/places" element={<Places />} />
         <Route path="/:userId/places" element={<UserPlaces />} />
         <Route path="/auth" element={<Auth />} />
-        <Route path="*" element={<Users />} />
+        <Route path="*" element={<Places />} />
       </Routes>
     );
   }
