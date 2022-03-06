@@ -16,26 +16,29 @@
 
 .nav-links a {
   border: 1px solid transparent;
-  color: #292929;
+  color: #000000;
   text-decoration: none;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
+  transition: 0.3s;
+  border-radius: 10px;
 }
 
 .nav-links a:hover,
 .nav-links a:active,
 .nav-links a.active {
-  background: #f8df00;
-  border-color: #292929;
-  color: #292929;
+  background: #ecf0f1;
+  color: #000000;
 }
 
 .nav-links button {
   cursor: pointer;
-  border: 1px solid #292929;
-  color: #292929;
+  border: 1px solid #000000;
+  color: #000000;
   background: transparent;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   font: inherit;
+  transition: 0.3s;
+  border-radius: 10px;
 }
 
 .nav-links button:focus {
@@ -44,7 +47,7 @@
 
 .nav-links button:hover,
 .nav-links button:active {
-  background: #292929;
+  background: #000000;
   color: white;
 }
 
@@ -70,7 +73,7 @@
 
   .nav-links button:hover,
   .nav-links button:active {
-    background: #f8df00;
-    color: #292929;
+    background: #ecf0f1;
+    color: #000000;
   }
 }
