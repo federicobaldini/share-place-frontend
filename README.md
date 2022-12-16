@@ -5,15 +5,15 @@ A web application to create posts on visited places and share them with other us
 Credit: https://github.com/mschwarzmueller and https://www.udemy.com/course/react-nodejs-express-mongodb-the-mern-fullstack-guide
 
 <p align="center">
-  <img src="https://github.com/federicobaldini/share-place-frontend/blob/master/home.png" alt="login" />
+  <img src="https://github.com/federicobaldini/share-place-frontend/blob/master/home.png" alt="home" />
 </p>
 
 <p align="center">
-  <img src="https://github.com/federicobaldini/share-place-frontend/blob/master/location.png" alt="add" />
+  <img src="https://github.com/federicobaldini/share-place-frontend/blob/master/location.png" alt="location" />
 </p>
 
 <p align="center">
-  <img src="https://github.com/federicobaldini/share-place-frontend/blob/master/add_location.png" alt="list" />
+  <img src="https://github.com/federicobaldini/share-place-frontend/blob/master/add_location.png" alt="add_location" />
 </p>
 
 ## Available Scripts
